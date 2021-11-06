@@ -13,10 +13,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
+@MockBean(AnswerService.class)
 public class AnswerControllerTest {
-
-    @MockBean
-    AnswerService answerService;
 
     @Autowired
     MockMvc mockMvc;
