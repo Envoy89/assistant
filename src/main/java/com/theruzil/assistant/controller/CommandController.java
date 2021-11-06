@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommandController {
 
     @Autowired
-    CommandService commandService;
+    private CommandService commandService;
 
+    /*
+        Command rules:
+            Get an answer to a question: Answer: you question
+                if answer don't exist in base, you get default answer or answer from Google
+     */
     @GetMapping(path = "/command")
     public String givCommand(@RequestParam String command) {
         BaseCommand com = BaseCommand.build(command);

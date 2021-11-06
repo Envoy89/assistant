@@ -8,13 +8,14 @@ public class BaseCommand {
     private String text;
 
     private BaseCommand(CommandType type, String text) {
-        this.text = text;
         this.type = type;
+        this.text = text;
     }
 
     public static BaseCommand build(String command) {
-        if (command.contains("answer")) {
-            return new BaseCommand(CommandType.ANSWER, command);
+        if (command.contains(CommandType.ANSWER.getTypeWord())) {
+            String question = command.replace(CommandType.ANSWER.getTypeWord(), "");
+            return new BaseCommand(CommandType.ANSWER, question);
         }
         return new BaseCommand(CommandType.DEFAULT, command);
     }

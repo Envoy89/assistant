@@ -27,6 +27,6 @@ public class CommandServiceTest {
 
         String actualResult = commandService.giveCommand(command);
 
-        Assert.assertEquals("test", actualResult);
+        Assert.assertEquals("I don't understand this command!!!!", actualResult);
     }
 }
